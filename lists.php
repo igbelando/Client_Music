@@ -1,27 +1,30 @@
-<?php 
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Formulario</title>
+		<title>Lists</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
+		<link rel="stylesheet" href="css/bootstrap.css">	
+	
+
 		<script type="text/javascript">
-			function ajax() {
-				var username = document.getElementById('username').value;
-				var userpass = document.getElementById('password').value;
-				// Consola
-				console.log(username);
-				console.log(userpass);
+		function ajax() {
+				var title = document.getElementById('titleText').value;
+				//var title = $("#title").val();
+
+
+				console.log(title);
+				
+			
 				// Instanciar el objeto XMLHttpRequest
 				connection = new XMLHttpRequest();
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				connection.open('GET', 'http://localhost/Alumni/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
+				connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				// Envío
-				connection.send();
+				connection.send("title=" + title);
 			}
 			function response(){
 				if (connection.readyState == 4) {
@@ -31,15 +34,12 @@
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
-					document.getElementById('data').innerHTML = response.data;
-					document.getElementById('user').innerHTML = response.data.username;
+					document.getElementById('title').innerHTML = response.title;
 					}
 				}
+					
 			}
 		</script>
-		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
-		<link rel="stylesheet" href="css/bootstrap.css">	
-	
 
 		<style>
 			body{
@@ -50,23 +50,22 @@
 				margin-bottom: 10px;
 			}
 		</style>
+
 	</head>
 	<body>
+		<h1>New list</h1>
 
-		<h1>Login</h1>
 		<div id='response'>
 			<p id='code'></p>
 			<p id='message'></p>
-			<p id='data'></p>
-			<p id='user'></p>
+			<p id='title'></p>
 		</div>
 
-	
+		<input type="text" class="form-control" id="titleText" placeholder="New list">
 		
-		<input type="text" class="form-control" id="username" placeholder="Username">
-		<input type="password" class="form-control" id="password" placeholder="Password">
-		<button onclick='ajax()' class="btn btn-primary active"">Enviar</button>
-	
+		<button onclick='ajax()' class="btn btn-primary active"">Create</button>
+
+
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

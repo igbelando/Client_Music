@@ -26,11 +26,8 @@
 			function GoPreRegister(){
 				window.location.href = "http://localhost/ClienteAlumni/prerregistro.php";
 			}
-			function GoRoles(){
-				window.location.href = "http://localhost/ClienteAlumni/roles.php";
-			}
-			function GoGroups(){
-				window.location.href = "http://localhost/ClienteAlumni/groups.php";
+			function GoLists(){
+				window.location.href = "http://localhost/ClienteAlumni/lists.php";
 			}
 
 		</script>
@@ -66,8 +63,8 @@
 		?>
 
 		<button type="button" class="btn btn-primary " onclick="GoPreRegister()">Create user</button>
-		<button type="button" class="btn btn-primary " onclick="GoRoles()">Create role</button>
-		<button type="button" class="btn btn-primary " onclick="GoGroups()">Create group</button>
+		
+		<button type="button" class="btn btn-primary " onclick="GoLists()">Create list</button>
 
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
