@@ -34,7 +34,6 @@
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
-					document.getElementById('title').innerHTML = response.title;
 					}
 				}
 					
@@ -58,7 +57,6 @@
 		<div id='response'>
 			<p id='code'></p>
 			<p id='message'></p>
-			<p id='title'></p>
 		</div>
 
 		<input type="text" class="form-control" id="titleText" placeholder="New list">
