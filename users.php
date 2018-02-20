@@ -1,18 +1,3 @@
-<?php 
-
- //url contra la que atacamos
- $ch = curl_init("http://localhost/Alumni/public/index.php/users/users.json");
- //a true, obtendremos una respuesta de la url, en otro caso, 
- //true si es correcto, false si no lo es
- curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- //establecemos el verbo http que queremos utilizar para la petición
- curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
- //obtenemos la respuesta
- $response = curl_exec($ch);
- // Se cierra el recurso CURL y se liberan los recursos del sistema
- curl_close($ch); 
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,6 +6,29 @@
 		<link rel="stylesheet" href="css/bootstrap.css">	
 	
 		<script type="text/javascript">
+
+
+			function showUsers(){
+				var users = new XMLHttpRequest();
+
+				users.open('GET', 'http://localhost/Alumni/public/index.php/users/users.json');
+				users.send();
+
+				users.onreadystatechange = function() {
+    				if(users.readyState == 4){
+        				console.log("connection  == 4 ");
+        				var response = JSON.parse(users.responseText);
+						console.log(response);
+						response.forEach(function(a){
+							console.log("Element " + a["username"]);
+							var node = document.createElement("LI");  
+							var textnode = document.createTextNode(a["username"]); 
+							node.appendChild(textnode);
+							document.getElementById('userList').appendChild(node)
+						});
+    				}	
+				}
+			}
 		
 
 			function GoPreRegister(){
@@ -29,6 +37,8 @@
 			function GoLists(){
 				window.location.href = "http://localhost/ClienteAlumni/lists.php";
 			}
+
+			showUsers();
 
 		</script>
 	
@@ -40,27 +50,21 @@
 				width: 200px;
 				margin-bottom: 10px;
 			}
+			button{
+				margin-top: 10px;
+			}
 		</style>
 	</head>
 	<body>
 
 		<h1>Lista Usuarios</h1>
 
-		<?php  
 		
-			$users = json_decode($response);
-			foreach ($users as $key=>$values) {
 
-		?>
-
-		<p> 
-			<?php echo $values->username;?> 
-			<p id="code"></p>
-        	<p id="message"></p>
-        </p>
-		<?php			
-			}
-		?>
+		<div id="userList">
+			
+		</div>
+		
 
 		<button type="button" class="btn btn-primary " onclick="GoPreRegister()">Create user</button>
 		

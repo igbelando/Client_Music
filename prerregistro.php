@@ -23,16 +23,18 @@
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				// Envío
-				connection.send("email=" + email + "username=" + username);
+				connection.send("email=" + email + "&username=" + username);
 			}
 			function response(){
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					console.log(response);
-					document.getElementById('code').innerHTML = response.code;
-					document.getElementById('message').innerHTML = response.message;
-					document.getElementById('user').innerHTML = response.data.username;
-					location.href ="http://localhost/ClienteAlumni/users.php";
+					if (response.code == 200){
+						location.href ="http://localhost/ClienteAlumni/users.php";
+					} else if (response.code == 400 || response.code == 500 ){
+						document.getElementById('code').innerHTML = response.code;
+						document.getElementById('message').innerHTML = response.message;
+					}
 				}
 			}
 		</script>
@@ -54,7 +56,6 @@
 		<div id='response'>
 			<p id='code'></p>
 			<p id='message'></p>
-			<p id='user'></p>
 		</div>
 
 		<input type="text" class="form-control" id="email" placeholder="Email">
