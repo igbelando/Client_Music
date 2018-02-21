@@ -9,10 +9,10 @@
 		<script type="text/javascript">
 			function ajax() {
 				var email = document.getElementById('email').value;
-				var username = document.getElementById('username').value;
+				//var username = document.getElementById('username').value;
 
 				console.log(email);
-				console.log(username);
+				//console.log(username);
 			
 				// Instanciar el objeto XMLHttpRequest
 				connection = new XMLHttpRequest();
@@ -23,7 +23,7 @@
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				// Envío
-				connection.send("email=" + email + "&username=" + username);
+				connection.send("email=" + email /*+ "&username=" + username*/);
 			}
 			function response(){
 				if (connection.readyState == 4) {
@@ -44,7 +44,7 @@
 				margin-left: 40%;
 			}
 			.form-control{
-				width: 200px;
+				width: 500px;
 				margin-bottom: 10px;
 			}
 		</style>
@@ -59,7 +59,7 @@
 		</div>
 
 		<input type="text" class="form-control" id="email" placeholder="Email">
-		<input type="text" class="form-control" id="username" placeholder="Username">
+		<!-- <input type="text" class="form-control" id="username" placeholder="Username"> -->
 		<button onclick='ajax()' class="btn btn-primary active"">Enviar</button>
 
 

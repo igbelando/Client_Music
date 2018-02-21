@@ -20,9 +20,9 @@
         				var response = JSON.parse(users.responseText);
 						console.log(response);
 						response.forEach(function(a){
-							console.log("Element " + a["username"]);
+							console.log("Element " + a["email"]);
 							var node = document.createElement("LI");  
-							var textnode = document.createTextNode(a["username"]); 
+							var textnode = document.createTextNode(a["email"]); 
 							node.appendChild(textnode);
 							document.getElementById('userList').appendChild(node)
 						});

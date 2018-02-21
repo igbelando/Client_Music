@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Formulario</title>
+		<title>Login</title>
 		<script type="text/javascript">
 			function ajax() {
 				var username = document.getElementById('username').value;
