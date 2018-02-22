@@ -20,8 +20,8 @@
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				//connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
-				connection.open('POST', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/lists/create.json');
+				connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
+				//connection.open('POST', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/lists/create.json');
 
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -32,8 +32,8 @@
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
-					//location.href ="http://localhost/ClienteAlumni/users.php";
-					location.href = "users.php";
+					location.href ="http://localhost/ClienteAlumni/users.php";
+					//location.href = "users.php";
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
