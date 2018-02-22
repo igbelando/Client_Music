@@ -21,7 +21,7 @@
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
 				//connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
-				connection.open('POST', 'h2744356.stratoserver.net/alumni/Alumni/public/index.php/lists/create.json');
+				connection.open('POST', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/lists/create.json');
 
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

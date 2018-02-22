@@ -12,7 +12,7 @@
 				var users = new XMLHttpRequest();
 
 				//users.open('GET', 'http://localhost/Alumni/public/index.php/users/users.json');
-				users.open('GET', 'h2744356.stratoserver.net/alumni/Alumni/public/index.php/users/users.json');
+				users.open('GET', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/users/users.json');
 				users.send();
 
 				users.onreadystatechange = function() {

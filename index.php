@@ -18,9 +18,9 @@
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
 				//connection.open('GET', 'http://localhost/Alumni/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
-				connection.open('GET', 'h2744356.stratoserver.net/alumni/Alumni/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
+				connection.open('GET', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
 				// Cabecera de la petición
-				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				//connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				// Envío
 				connection.send();
 			}
