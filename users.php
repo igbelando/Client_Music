@@ -34,11 +34,11 @@
 
 			function GoPreRegister(){
 				//window.location.href = "http://localhost/ClienteAlumni/prerregistro.php";
-				window.location.href = "h2744356.stratoserver.net/ClienteAlumni/prerregistro.php";
+				window.location.href = "h2744356.stratoserver.net/alumni/ClienteAlumni/prerregistro.php";
 			}
 			function GoLists(){
 				//window.location.href = "http://localhost/ClienteAlumni/lists.php";
-				window.location.href = "h2744356.stratoserver.net/ClienteAlumni/lists.php";
+				window.location.href = "h2744356.stratoserver.net/alumni/ClienteAlumni/lists.php";
 
 			}
 

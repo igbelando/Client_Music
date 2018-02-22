@@ -29,7 +29,7 @@
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
 					//location.href ="http://localhost/ClienteAlumni/users.php";
-					location.href = "h2744356.stratoserver.net/ClienteAlumni/users.php";
+					location.href = "h2744356.stratoserver.net/alumni/ClienteAlumni/users.php";
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
