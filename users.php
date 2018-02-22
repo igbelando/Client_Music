@@ -11,7 +11,8 @@
 			function showUsers(){
 				var users = new XMLHttpRequest();
 
-				users.open('GET', 'http://localhost/Alumni/public/index.php/users/users.json');
+				//users.open('GET', 'http://localhost/Alumni/public/index.php/users/users.json');
+				users.open('GET', 'h2744356.stratoserver.net/alumni/Alumni/public/index.php/users/users.json');
 				users.send();
 
 				users.onreadystatechange = function() {
@@ -32,10 +33,13 @@
 		
 
 			function GoPreRegister(){
-				window.location.href = "http://localhost/ClienteAlumni/prerregistro.php";
+				//window.location.href = "http://localhost/ClienteAlumni/prerregistro.php";
+				window.location.href = "h2744356.stratoserver.net/ClienteAlumni/prerregistro.php";
 			}
 			function GoLists(){
-				window.location.href = "http://localhost/ClienteAlumni/lists.php";
+				//window.location.href = "http://localhost/ClienteAlumni/lists.php";
+				window.location.href = "h2744356.stratoserver.net/ClienteAlumni/lists.php";
+
 			}
 
 			showUsers();
