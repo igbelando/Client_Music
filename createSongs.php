@@ -24,7 +24,7 @@
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				connection.open('POST', 'http://localhost/appmusicfinal/public/index.php/songs/create.json');
+				connection.open('POST', 'http://localhost/Client_Music/public/index.php/songs/create.json');
 				
 
 				// Cabecera de la petición
@@ -36,7 +36,7 @@
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
-					location.href ="http://localhost/ClienteAppMusica/songs.php";
+					location.href ="http://localhost/Client_Music/songs.php";
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
@@ -48,12 +48,19 @@
 
 		<style>
 			body{
-				margin-left: 40%;
+				margin-top: 200px;
+				margin-left: 10%;
+				background-color: grey;
 			}
 			.form-control{
 				width: 200px;
 				margin-bottom: 10px;
+			
 			}
+			button{
+				margin-top: 10px;
+			}
+			
 		</style>
 
 	</head>

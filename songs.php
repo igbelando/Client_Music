@@ -11,7 +11,7 @@
 			function showUsers(){
 				var songs = new XMLHttpRequest();
 
-				songs.open('GET', 'http://localhost/appmusicfinal/public/index.php/songs/songs.json');
+				songs.open('GET', 'http://localhost/Client_Music/public/index.php/songs/songs.json');
 				songs.send();
 
 				songs.onreadystatechange = function() {
@@ -37,10 +37,11 @@
 		
 
 			function GoCreateSongs(){
-				window.location.href = "http://localhost/ClienteAppMusica/createSongs.php";
+				window.location.href = "http://localhost/Client_Music/createSongs.php";
 			}	
 			function GoLists(){
-				window.location.href = "http://localhost/ClienteAppMusica/lists.php";
+				window.location.href = "http://localhost/Client_Music/lists.php";
+
 
 			}
 
@@ -50,14 +51,13 @@
 	
 		<style>
 			body{
-				margin-left: 40%;
-			}
-			p{
-				width: 200px;
-				margin-bottom: 10px;
+				margin-top: 200px;
+				margin-left: 10%;
+				background-color: grey;
 			}
 			button{
 				margin-top: 10px;
+				color
 			}
 		</style>
 	</head>

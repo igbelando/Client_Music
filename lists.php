@@ -21,7 +21,7 @@
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
 				//connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
-				connection.open('POST', 'http://h2744356.stratoserver.net/alumni/Alumni/public/index.php/lists/create.json');
+				connection.open('POST', 'http://localhost/Client_Music/public/index.php/songs/songs.json');
 
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -33,7 +33,7 @@
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
 					//location.href ="http://localhost/ClienteAlumni/users.php";
-					location.href = "http://h2744356.stratoserver.net/alumni/ClienteAlumni/users.php";
+					location.href = "http://localhost/Client_Music/lists.php";
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
 					document.getElementById('message').innerHTML = response.message;
@@ -45,11 +45,14 @@
 
 		<style>
 			body{
-				margin-left: 40%;
+				margin-top: 200px;
+				margin-left: 10%;
+				background-color: grey;
 			}
 			.form-control{
 				width: 200px;
 				margin-bottom: 10px;
+			
 			}
 		</style>
 
