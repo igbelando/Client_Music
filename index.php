@@ -8,16 +8,17 @@
 		<script type="text/javascript">
 			function ajax() {
 				var username = document.getElementById('username').value;
-				var userpass = document.getElementById('password').value;
+				var password = document.getElementById('password').value;
 				// Consola
+
 				console.log(username);
-				console.log(userpass);
+				console.log(password);
 				// Instanciar el objeto XMLHttpRequest
 				connection = new XMLHttpRequest();
 				// Preparar respuesta
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
-				connection.open('GET', 'http://localhost/IsaacMusic/public/index.php/users/login.json?username=' + username + '&password=' + userpass);
+				connection.open('GET', 'http://localhost/IsaacMusic/public/index.php/users/login.json?username=' + username + '&password=' + password);
 			
 				// Cabecera de la petición
 				//connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -25,10 +26,17 @@
 				connection.send();
 			}
 			function response(){
+
 				if (connection.readyState == 4) {
 					var response = JSON.parse(connection.responseText);
 					if (response.code == 200){
+						console.log(response);
+						//sessionStorage.setItem('username', data.username);
+						sessionStorage.setItem('token', response.data);
+						//alert($token);
 					location.href ="http://localhost/Client_Music/songs.php";
+					console.log(response);
+
 				
 					} else if (response.code == 400 || response.code == 500 ){
 					document.getElementById('code').innerHTML = response.code;
@@ -52,6 +60,7 @@
 				width: 200px;
 				margin-bottom: 20px;
 			}
+			
 		</style>
 	</head>
 	<body>

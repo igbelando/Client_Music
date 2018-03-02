@@ -2,49 +2,49 @@
 <html>
 	<head>
 		<title>Create song</title>
+
 		<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">			
 		<link rel="stylesheet" href="css/bootstrap.css">	
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<script type="text/javascript">
-		function ajax() {
-				var title = document.getElementById('title').value;
-				var artist = document.getElementById('artist').value;
-				var url = document.getElementById('url').value;
-				//var title = $("#title").val();
+		  $(document).ready(function (){
+		    $(".crear").on("click", function(e){
+		      e.preventDefault();
+		      var title = $("#title").val();
+		      var url = $("#url").val();
+		      var artist = $("#artist").val();
+		      $.ajax({
+		      	headers: {
+		          'Authorization' : sessionStorage.getItem('token')
+		         },
+		        url: 'http://localhost/IsaacMusic/public/index.php/songs/create.json',
+            // http://81.169.234.32/alexander/alexMiglioreAPIFinal/public/index.php/songs/create.json
+		        dataType: 'json',
+		        type: 'POST',
+		        data: {
+		          'title': title,
+		          'artist': artist,
+		          'url': url,
+		        },
+		        success:function(data){
+		        	console.log(data);
+		          if (data.code == '200') 
+		           {
+		            alert("Cancion añadida correctamente");
+		             location.reload();
+		           }
+		          if (data.code == '400') 
+		          {
+		            alert(data.message);
+		          }
+        }
+      });
+    });
+  });
+  </script>
 
-
-				console.log(title);
-				console.log(artist);
-				console.log(url);
-				
-			
-				// Instanciar el objeto XMLHttpRequest
-				connection = new XMLHttpRequest();
-				// Preparar respuesta
-				connection.onreadystatechange = response;
-				// Petición HTTP con POST
-				connection.open('POST', 'http://localhost/Client_Music/public/index.php/songs/create.json');
-				
-
-				// Cabecera de la petición
-				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				// Envío
-				connection.send("title=" + title + "&artist=" + artist + "&url=" + artist);
-			}
-			function response(){
-				if (connection.readyState == 4) {
-					var response = JSON.parse(connection.responseText);
-					if (response.code == 200){
-					location.href ="http://localhost/Client_Music/songs.php";
-					} else if (response.code == 400 || response.code == 500 ){
-					document.getElementById('code').innerHTML = response.code;
-					document.getElementById('message').innerHTML = response.message;
-					}
-				}
-					
-			}
-		</script>
 
 		<style>
 			body{
@@ -76,7 +76,7 @@
 		<input type="text" class="form-control" id="artist" placeholder="Artist">
 		<input type="text" class="form-control" id="url" placeholder="URL">
 		
-		<button onclick='ajax()' class="btn btn-primary active"">Create</button>
+		<button class="btn btn-primary active crear"">Create</button>
 
 
 		<script src="js/jquery.js"></script>

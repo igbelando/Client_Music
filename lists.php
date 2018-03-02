@@ -21,7 +21,7 @@
 				connection.onreadystatechange = response;
 				// Petición HTTP con POST
 				//connection.open('POST', 'http://localhost/Alumni/public/index.php/lists/create.json');
-				connection.open('POST', 'http://localhost/Client_Music/public/index.php/songs/songs.json');
+				connection.open('POST', 'http://localhost/IsaacMusic/public/index.php/songs/create.json');
 
 				// Cabecera de la petición
 				connection.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

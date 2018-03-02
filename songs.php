@@ -11,7 +11,7 @@
 			function showUsers(){
 				var songs = new XMLHttpRequest();
 
-				songs.open('GET', 'http://localhost/Client_Music/public/index.php/songs/songs.json');
+				songs.open('GET', 'http://localhost/IsaacMusic/public/index.php/songs/create.json');
 				songs.send();
 
 				songs.onreadystatechange = function() {
